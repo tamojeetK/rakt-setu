@@ -3,7 +3,7 @@
 A free, very light web app that connects village blood donors with families in an emergency.
 There's nothing to download. It works on phones over slow 3G and on laptops and desktops, in English, Hindi and Bengali, and costs ₹0 to run on the free plans of Vercel and Supabase.
 
-**Full project documentation (15 pages):** [docs/Rakt-Setu-and-BloodBank-Project-Documentation.pdf](docs/Rakt-Setu-and-BloodBank-Project-Documentation.pdf). It covers the architecture, how it works, privacy rules, the database, the API, deployment, operations, testing and the BloodBank redesign.
+**Full project documentation (11 pages):** [docs/Rakt-Setu-and-BloodBank-Project-Documentation.pdf](docs/Rakt-Setu-and-BloodBank-Project-Documentation.pdf). It covers the architecture, how it works, privacy rules, the database, the API, deployment, operations, testing and the BloodBank redesign.
 
 - **Families**: enter a pincode (or district) and the blood group needed. They see nearby donors who can give, then tap **Message on WhatsApp**. WhatsApp opens with a message already written in the donor's language.
 - **Donors**: register in about 2 minutes. They get a private link to pause, mark "I gave blood today", or delete their details.
