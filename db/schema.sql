@@ -240,9 +240,13 @@ begin
   return query
   with c as (
     select d.*,
+      coalesce(p.district, d.district) as dd,   -- prefer the official pincode table's district name
       case
         when d.pincode = v_place then 0
-        when v_pin.district is not null and lower(d.district) = lower(v_pin.district) then 1
+        when v_pin.district is not null and (
+               lower(coalesce(p.district, d.district)) = lower(v_pin.district)
+            or (v_pin.pincode is null and coalesce(p.district, d.district) ilike '%' || v_pin.district || '%')
+        ) then 1
         else 2
       end as t,
       km(v_pin.lat, v_pin.lon, p.lat, p.lon) as dist
@@ -258,8 +262,8 @@ begin
          split_part(trim(c.name), ' ', 1),
          c.blood_group,
          c.blood_group = p_group,
-         coalesce(nullif(c.locality,''), c.district, c.pincode::text) ||
-           case when c.locality is not null and c.district is not null then ', ' || c.district else '' end,
+         coalesce(nullif(c.locality,''), c.dd, c.pincode::text) ||
+           case when c.locality is not null and c.dd is not null then ', ' || c.dd else '' end,
          round(c.dist)::int,
          c.t,
          c.confirmed_at < now() - make_interval(days => cfg('stale_days'))

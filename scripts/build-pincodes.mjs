@@ -57,11 +57,22 @@ for (const r of rows) {
   by.set(pin, g);
 }
 
+// Pincodes with no coordinates borrow the middle point of their district,
+// so distances still work roughly and the CSV has no empty cells.
+const distPts = new Map();
+for (const g of by.values()) {
+  if (!g.d.length || !g.lat.length) continue;
+  const k = mode(g.d) + '|' + mode(g.s);
+  const a = distPts.get(k) || { lat: [], lon: [] };
+  a.lat.push(median(g.lat)); a.lon.push(median(g.lon)); distPts.set(k, a);
+}
+
 const out = ['pincode,district,state,lat,lon'];
 let withCoords = 0;
 for (const [pin, g] of [...by].sort()) {
   if (!g.d.length || !g.s.length) continue;
-  const lat = median(g.lat), lon = median(g.lon);
+  let lat = median(g.lat), lon = median(g.lon);
+  if (lat == null) { const a = distPts.get(mode(g.d) + '|' + mode(g.s)); if (a) { lat = median(a.lat); lon = median(a.lon); } }
   if (lat != null) withCoords++;
   const q = (s) => `"${s.replace(/"/g, '""')}"`;
   out.push([pin, q(mode(g.d)), q(mode(g.s)), lat ?? '', lon ?? ''].join(','));

@@ -1,7 +1,7 @@
 # Rakt Setu — Rural India Blood Registry (V1)
 
 A free, very light web app that connects village blood donors with families in an emergency.
-There's nothing to download. It works on slow 3G, in English, Hindi and Bengali, and costs ₹0 to run on the free plans of Vercel and Supabase.
+There's nothing to download. It works on phones over slow 3G and on laptops and desktops, in English, Hindi and Bengali, and costs ₹0 to run on the free plans of Vercel and Supabase.
 
 - **Families**: enter a pincode (or district) and the blood group needed. They see nearby donors who can give, then tap **Message on WhatsApp**. WhatsApp opens with a message already written in the donor's language.
 - **Donors**: register in about 2 minutes. They get a private link to pause, mark "I gave blood today", or delete their details.
@@ -38,15 +38,12 @@ You can change any of these numbers in the `cfg()` function at the top of `db/sc
    - the **Project URL**
    - the **secret key** (`sb_secret_…`), or the legacy `service_role` key
 
-### 2. Pincodes
-1. Download India Post's **"All India Pincode Directory"** CSV from data.gov.in.
-2. Turn it into a small file. Starting with your pilot state is fine:
-   ```bash
-   node scripts/build-pincodes.mjs pincode_directory.csv "WEST BENGAL"
-   ```
-3. In Supabase, open **Table Editor → pincodes → Insert → Import data from CSV** and choose `pincodes.csv`.
+### 2. Pincodes (already prepared)
+`db/pincodes-india.csv` is ready to import. It covers all 19,300 Indian pincodes with district, state and approximate coordinates.
+1. In Supabase, open **Table Editor → pincodes → Insert → Import data from CSV**.
+2. Choose `db/pincodes-india.csv` and import.
 
-Without pincodes the site still works, but search only matches the exact pincode or the district name the donor typed, and there are no distances.
+Source: India Post's All India Pincode Directory on data.gov.in, released under the Government Open Data License – India, via the IndiaPIN package (December 2021 snapshot). Some coordinates are approximate, so distances are a guide only. To refresh it from a newer download, run `node scripts/build-pincodes.mjs <file.csv> [STATE]`.
 
 ### 3. Hosting (Vercel)
 1. Push this folder to a GitHub repo.

@@ -12,7 +12,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:8
 .langs{display:flex;gap:4px}
 .langs button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:20px;padding:5px 10px;font:inherit;font-size:14px;cursor:pointer}
 .langs button[aria-pressed=true]{background:#fff;color:var(--red);border-color:#fff;font-weight:600}
-main{padding:16px 0 32px}
+main.wrap{padding-top:16px;padding-bottom:32px}
 h1{font-size:24px;line-height:1.25;margin:4px 0 12px}
 h2{font-size:19px;margin:0 0 8px}
 p{margin:0 0 12px}
@@ -60,3 +60,34 @@ input:focus,select:focus,button:focus-visible,a:focus-visible{outline:3px solid 
 footer{text-align:center;font-size:14px;color:var(--mute);padding:8px 16px 28px}
 footer a{color:var(--mute)}
 [hidden]{display:none!important}
+
+/* ---------- laptops & desktops ---------- */
+.narrow{max-width:720px;margin:0 auto}
+@media (min-width:760px){
+  .row2{display:flex;gap:16px}
+  .row2>*{flex:1;min-width:0}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .duo>*{margin-bottom:0}
+  .big{padding:28px 26px}
+  .big b{font-size:28px}
+  .overlay{align-items:center;padding:24px}
+  .sheet{border-radius:16px;max-width:520px}
+  #results{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  #results .card{margin:0}
+}
+@media (min-width:960px){
+  body{font-size:16px}
+  .wrap{max-width:1120px;padding:0 24px}
+  header .wrap{padding:14px 24px}
+  main.wrap{padding-top:32px;padding-bottom:48px}
+  h1{font-size:30px}
+  .find-layout{display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start}
+  .find-side{position:sticky;top:16px}
+  .find-main{min-height:200px}
+  .btn,.big,.langs button{transition:background-color .15s,box-shadow .15s,transform .05s}
+  .big:hover{box-shadow:0 6px 20px rgba(179,19,27,.18)}
+  .big.alt:hover{background:var(--red-l)}
+  .btn.ghost:hover{background:#f1f1f4}
+  .langs button:hover{background:rgba(255,255,255,.15)}
+  .langs button[aria-pressed=true]:hover{background:#fff}
+}

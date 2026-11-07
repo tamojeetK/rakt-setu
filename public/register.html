@@ -18,14 +18,18 @@
 <div class="langs" role="group" aria-label="Language / भाषा / ভাষা"><button type="button" data-lang="en">English</button><button type="button" data-lang="hi">हिन्दी</button><button type="button" data-lang="bn">বাংলা</button></div>
 </div></header>
 <main class="wrap">
+<div class="narrow">
 <div id="regView">
 <h1 data-i18n="reg_title">Register as a blood donor</h1>
 <p class="mute" data-i18n="reg_intro"></p>
 <form id="reg" class="card" novalidate>
+<div class="row2"><div>
 <label for="name" data-i18n="name_label">Full name</label>
 <input id="name" name="name" required maxlength="60" autocomplete="name">
+</div><div>
 <label for="phone" data-i18n="phone_label">Mobile number</label>
 <input id="phone" name="phone" required type="tel" inputmode="numeric" maxlength="18" autocomplete="tel-national" placeholder="98765 43210">
+</div></div>
 <label for="blood_group" data-i18n="bg_label">Blood group</label>
 <select id="blood_group" name="blood_group" required><option value="" data-i18n="choose">Choose…</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
 <div class="field-hint" data-i18n="bg_help"></div>
@@ -39,12 +43,15 @@
 <div><label for="birth_year" data-i18n="by_label">Year of birth</label><input id="birth_year" name="birth_year" required inputmode="numeric" maxlength="4" placeholder="1995"></div>
 <div><label for="weight_kg" data-i18n="weight_label">Weight (kg)</label><input id="weight_kg" name="weight_kg" required inputmode="numeric" maxlength="3" placeholder="55"></div>
 </div>
+<div class="row2"><div>
 <label for="pincode" data-i18n="pin_label">Pincode</label>
 <input id="pincode" name="pincode" required inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="721301">
 <div class="field-hint" id="pinInfo"></div>
+</div><div>
 <div id="districtWrap" hidden><label for="district" data-i18n="district_label">District</label><input id="district" name="district" maxlength="60"></div>
 <label for="locality" data-i18n="locality_label">Village / locality</label>
 <input id="locality" name="locality" maxlength="80">
+</div></div>
 <label for="last_donated_on" data-i18n="last_label">Last date you gave blood</label>
 <input id="last_donated_on" name="last_donated_on" type="date">
 <label data-i18n="msg_lang_label">Language for messages</label>
@@ -74,6 +81,7 @@
 <div class="linkbox" id="link"></div>
 <a class="btn wa" id="saveWa" target="_blank" rel="noopener" data-i18n="save_wa">Save link in WhatsApp</a>
 <button class="btn ghost" type="button" id="copy" data-i18n="copy">Copy link</button>
+</div>
 </div>
 </div>
 </main>
