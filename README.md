@@ -45,16 +45,17 @@ You can change any of these numbers in the `cfg()` function at the top of `db/sc
 
 Source: India Post's All India Pincode Directory on data.gov.in, released under the Government Open Data License – India, via the IndiaPIN package (December 2021 snapshot). Some coordinates are approximate, so distances are a guide only. To refresh it from a newer download, run `node scripts/build-pincodes.mjs <file.csv> [STATE]`.
 
-### 3. Hosting (Vercel)
-1. Push this folder to a GitHub repo.
-2. On vercel.com, click **Add New → Project**, import the repo, and keep the default settings.
-3. Add these **Environment Variables** (see `.env.example`):
-   - `SUPABASE_URL`
-   - `SUPABASE_SERVICE_KEY`
-   - `IP_SALT`: any long random text
-   - `CRON_SECRET`: any long random text
-   - `SITE_NAME` (optional)
-4. Click Deploy. The daily cron in `vercel.json` (`/api/keepalive`) keeps the free Supabase project from pausing after a week with no traffic.
+### 3. Hosting: Netlify or Vercel (both work from this repo)
+
+**Netlify** (uses `netlify.toml` and `netlify/functions/`)
+1. On netlify.com, sign up, then go to **Add new site → Import an existing project → GitHub** and pick this repo. The build settings are read from `netlify.toml`, so leave them as they are.
+2. Under **Site configuration → Environment variables**, add `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `IP_SALT` (any long random text) and `SITE_NAME` (optional).
+3. Deploy. The scheduled function `keepalive` runs daily to keep Supabase awake and clear old logs.
+
+**Vercel** (uses `vercel.json` and `api/`)
+1. On vercel.com, go to **Add New → Project**, import the repo, and keep the default settings.
+2. Add the same environment variables, plus `CRON_SECRET` (any long random text).
+3. Deploy. The daily cron in `vercel.json` keeps the free Supabase project from pausing.
 
 ### 4. Check that it works
 - Register yourself as a test donor. Then search your pincode and confirm you show up.
@@ -80,7 +81,8 @@ public/            the website (plain HTML/CSS/JS, no framework, no build step)
   privacy.html     plain-language privacy notice
   i18n.js          ALL text in English / Hindi / Bengali — edit translations here
   app.js, app.css, sw.js (offline cache), manifest, icon
-api/               Vercel serverless functions (thin; logic is in the database)
+api/               serverless functions (thin; logic is in the database)
+netlify/           Netlify wrappers that run the same api/ code
   search, pincode, register, contact, manage, keepalive
   _messages.js     the pre-filled WhatsApp message in 3 languages
 db/schema.sql      tables, rules and functions — run in Supabase
