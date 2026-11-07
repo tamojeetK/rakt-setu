@@ -49,7 +49,7 @@ Source: India Post's All India Pincode Directory on data.gov.in, released under 
 
 **Netlify** (uses `netlify.toml` and `netlify/functions/`)
 1. On netlify.com, sign up, then go to **Add new site → Import an existing project → GitHub** and pick this repo. The build settings are read from `netlify.toml`, so leave them as they are.
-2. Under **Site configuration → Environment variables**, add `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `IP_SALT` (any long random text) and `SITE_NAME` (optional).
+2. Under **Site configuration → Environment variables**, add `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `IP_SALT` (any long random text) and `APP_NAME` (optional, defaults to "Rakt Setu").
 3. Deploy. The scheduled function `keepalive` runs daily to keep Supabase awake and clear old logs.
 
 **Vercel** (uses `vercel.json` and `api/`)
@@ -106,4 +106,4 @@ set -a; . ./.env; set +a; node test/dev-server.mjs   # http://localhost:3000
 3. **Duplicate-number check**: registering an existing number shows "already registered", which tells someone that number is in the registry. This is acceptable for V1. Revisit it if abuse appears.
 4. **Legal**: this stores personal data covered by India's DPDP Act. Have the consent text and privacy page reviewed before going beyond one district.
 5. **Health rules** follow the NBTC 2017 donor-selection guidelines in a simplified form. The blood bank still does the full medical screening.
-6. The name "Rakt Setu" is a placeholder. Check that no one else is using it, then change it in `i18n.js` (`site_name`) and `SITE_NAME`.
+6. The name "Rakt Setu" is a placeholder. Check that no one else is using it, then change it in `i18n.js` (`site_name`) and `APP_NAME`.

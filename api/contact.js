@@ -18,7 +18,7 @@ export default handler(['POST'], async (req) => {
   });
   const d = rows[0];
   const text = waMessage(d.lang, {
-    name: d.first_name, site: process.env.SITE_NAME || 'Rakt Setu',
+    name: d.first_name, site: process.env.APP_NAME || 'Rakt Setu',
     hospital, group: group || d.blood_group, units, from,
   });
   return {
