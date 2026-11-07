@@ -1,0 +1,11 @@
+{
+  "name": "rakt-setu",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rural India blood donor registry — zero-cost, lightweight, trilingual",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "pincodes": "node scripts/build-pincodes.mjs"
+  }
+}

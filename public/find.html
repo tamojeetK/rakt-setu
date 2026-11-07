@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b3131b">
+<title>Find a blood donor — Rakt Setu</title>
+<meta name="description" content="Find voluntary blood donors near you, or register as a donor. Free, private, works on slow networks.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/app.css">
+<script src="/i18n.js" defer></script>
+<script src="/app.js" defer></script>
+</head>
+<body data-page="find">
+<header><div class="wrap">
+<a class="brand" href="/"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2s7 7.6 7 12.5A7 7 0 0 1 5 14.5C5 9.6 12 2 12 2z"/><path fill="#b3131b" d="M11 10h2v3h3v2h-3v3h-2v-3H8v-2h3z"/></svg><span><span data-i18n="site_name">Rakt Setu</span><small data-i18n="tagline">Village blood donor registry</small></span></a>
+<div class="langs" role="group" aria-label="Language / भाषा / ভাষা"><button type="button" data-lang="en">English</button><button type="button" data-lang="hi">हिन्दी</button><button type="button" data-lang="bn">বাংলা</button></div>
+</div></header>
+<main class="wrap">
+<h1 data-i18n="find_title">Find a blood donor</h1>
+<form id="search" class="card" novalidate>
+<label for="place" data-i18n="place_label">Pincode or district</label>
+<input id="place" name="place" required autocomplete="postal-code" data-i18n-ph="place_ph" placeholder="e.g. 721301">
+<label for="group" data-i18n="group_label">Blood group needed</label>
+<select id="group" name="group" required><option value="" data-i18n="choose">Choose…</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+<button class="btn" data-i18n="search_btn">Search</button>
+</form>
+<p class="mute"><a href="https://eraktkosh.mohfw.gov.in/" target="_blank" rel="noopener" data-i18n="step1_btn">Check stock on e-RaktKosh</a></p>
+<div id="status" role="status" aria-live="polite"></div>
+<div id="results"></div>
+<div class="overlay" id="contact" hidden>
+<form class="sheet" id="contactForm" role="dialog" aria-modal="true" aria-labelledby="contactTitle" novalidate>
+<h2 id="contactTitle"></h2>
+<label for="hospital" data-i18n="hospital_label">Hospital name</label>
+<input id="hospital" name="hospital" required maxlength="80" data-i18n-ph="hospital_ph">
+<div class="row">
+<div><label for="units" data-i18n="units_label">Units needed</label><input id="units" name="units" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="1"></div>
+<div><label for="from" data-i18n="from_label">Your name</label><input id="from" name="from" maxlength="40" autocomplete="name"></div>
+</div>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="check"><input type="checkbox" id="genuine"><span data-i18n="genuine"></span></label>
+<div id="contactErr"></div>
+<button class="btn wa" name="via" value="wa" data-i18n="open_wa">Open WhatsApp</button>
+<p class="mute" style="margin:8px 0 0" data-i18n="wa_note"></p>
+<div class="row"><button class="btn ghost" name="via" value="call" data-i18n="call_btn">Call instead</button><button class="btn ghost" type="button" id="cancel" data-i18n="cancel">Cancel</button></div>
+</form>
+</div>
+</main>
+<footer><a href="/privacy" data-i18n="privacy">Privacy</a> · <span data-i18n="ambulance">Ambulance: 108</span></footer>
+</body>
+</html>

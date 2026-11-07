@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b3131b">
+<title>Register as a blood donor — Rakt Setu</title>
+<meta name="description" content="Find voluntary blood donors near you, or register as a donor. Free, private, works on slow networks.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/app.css">
+<script src="/i18n.js" defer></script>
+<script src="/app.js" defer></script>
+</head>
+<body data-page="register">
+<header><div class="wrap">
+<a class="brand" href="/"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2s7 7.6 7 12.5A7 7 0 0 1 5 14.5C5 9.6 12 2 12 2z"/><path fill="#b3131b" d="M11 10h2v3h3v2h-3v3h-2v-3H8v-2h3z"/></svg><span><span data-i18n="site_name">Rakt Setu</span><small data-i18n="tagline">Village blood donor registry</small></span></a>
+<div class="langs" role="group" aria-label="Language / भाषा / ভাষা"><button type="button" data-lang="en">English</button><button type="button" data-lang="hi">हिन्दी</button><button type="button" data-lang="bn">বাংলা</button></div>
+</div></header>
+<main class="wrap">
+<div id="regView">
+<h1 data-i18n="reg_title">Register as a blood donor</h1>
+<p class="mute" data-i18n="reg_intro"></p>
+<form id="reg" class="card" novalidate>
+<label for="name" data-i18n="name_label">Full name</label>
+<input id="name" name="name" required maxlength="60" autocomplete="name">
+<label for="phone" data-i18n="phone_label">Mobile number</label>
+<input id="phone" name="phone" required type="tel" inputmode="numeric" maxlength="18" autocomplete="tel-national" placeholder="98765 43210">
+<label for="blood_group" data-i18n="bg_label">Blood group</label>
+<select id="blood_group" name="blood_group" required><option value="" data-i18n="choose">Choose…</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+<div class="field-hint" data-i18n="bg_help"></div>
+<label data-i18n="sex_label">Gender</label>
+<div class="radios">
+<label><input type="radio" name="sex" value="M" required><span data-i18n="male">Male</span></label>
+<label><input type="radio" name="sex" value="F"><span data-i18n="female">Female</span></label>
+<label><input type="radio" name="sex" value="O"><span data-i18n="other">Other</span></label>
+</div>
+<div class="row">
+<div><label for="birth_year" data-i18n="by_label">Year of birth</label><input id="birth_year" name="birth_year" required inputmode="numeric" maxlength="4" placeholder="1995"></div>
+<div><label for="weight_kg" data-i18n="weight_label">Weight (kg)</label><input id="weight_kg" name="weight_kg" required inputmode="numeric" maxlength="3" placeholder="55"></div>
+</div>
+<label for="pincode" data-i18n="pin_label">Pincode</label>
+<input id="pincode" name="pincode" required inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="721301">
+<div class="field-hint" id="pinInfo"></div>
+<div id="districtWrap" hidden><label for="district" data-i18n="district_label">District</label><input id="district" name="district" maxlength="60"></div>
+<label for="locality" data-i18n="locality_label">Village / locality</label>
+<input id="locality" name="locality" maxlength="80">
+<label for="last_donated_on" data-i18n="last_label">Last date you gave blood</label>
+<input id="last_donated_on" name="last_donated_on" type="date">
+<label data-i18n="msg_lang_label">Language for messages</label>
+<div class="radios">
+<label><input type="radio" name="lang" value="hi"><span>हिन्दी</span></label>
+<label><input type="radio" name="lang" value="bn"><span>বাংলা</span></label>
+<label><input type="radio" name="lang" value="en"><span>English</span></label>
+</div>
+<h2 style="margin-top:22px" data-i18n="health_title">Health check</h2>
+<label class="check"><input type="checkbox" class="hq"><span data-i18n="h1"></span></label>
+<label class="check"><input type="checkbox" class="hq"><span data-i18n="h2"></span></label>
+<label class="check"><input type="checkbox" class="hq"><span data-i18n="h3"></span></label>
+<label class="check" id="h4" hidden><input type="checkbox" class="hq"><span data-i18n="h4"></span></label>
+<p class="mute" data-i18n="health_note"></p>
+<label class="check"><input type="checkbox" id="consent"><span data-i18n="consent"></span></label>
+<p class="mute"><a href="/privacy" data-i18n="privacy">Privacy</a></p>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div id="regErr" role="alert"></div>
+<button class="btn" data-i18n="reg_btn">Register</button>
+</form>
+</div>
+<div id="doneView" hidden>
+<div class="card">
+<h1 data-i18n="reg_done_title">Thank you! You are registered.</h1>
+<p id="nextOn"></p>
+<p data-i18n="reg_done_text"></p>
+<div class="linkbox" id="link"></div>
+<a class="btn wa" id="saveWa" target="_blank" rel="noopener" data-i18n="save_wa">Save link in WhatsApp</a>
+<button class="btn ghost" type="button" id="copy" data-i18n="copy">Copy link</button>
+</div>
+</div>
+</main>
+<footer><a href="/privacy" data-i18n="privacy">Privacy</a> · <span data-i18n="ambulance">Ambulance: 108</span></footer>
+</body>
+</html>

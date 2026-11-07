@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b3131b">
+<title>My donor details — Rakt Setu</title>
+<meta name="description" content="Find voluntary blood donors near you, or register as a donor. Free, private, works on slow networks.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/app.css">
+<script src="/i18n.js" defer></script>
+<script src="/app.js" defer></script>
+</head>
+<body data-page="me">
+<header><div class="wrap">
+<a class="brand" href="/"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2s7 7.6 7 12.5A7 7 0 0 1 5 14.5C5 9.6 12 2 12 2z"/><path fill="#b3131b" d="M11 10h2v3h3v2h-3v3h-2v-3H8v-2h3z"/></svg><span><span data-i18n="site_name">Rakt Setu</span><small data-i18n="tagline">Village blood donor registry</small></span></a>
+<div class="langs" role="group" aria-label="Language / भाषा / ভাষা"><button type="button" data-lang="en">English</button><button type="button" data-lang="hi">हिन्दी</button><button type="button" data-lang="bn">বাংলা</button></div>
+</div></header>
+<main class="wrap">
+<h1 data-i18n="me_title">My donor details</h1>
+<div id="meErr" role="alert"></div>
+<div id="meView" hidden>
+<div class="card">
+<div class="donor-top"><div class="bg" id="meGroup"></div><b id="meName"></b></div>
+<div id="meStatus" class="msg"></div>
+<button class="btn" type="button" data-act="donated" data-i18n="btn_donated">I gave blood today</button>
+<details style="margin-top:10px"><summary data-i18n="btn_donated_other">I gave blood on another date</summary>
+<div class="row" style="align-items:end"><input type="date" id="otherDate"><button class="btn small" type="button" data-act="donated-date" data-i18n="save">Save</button></div></details>
+<button class="btn ghost" type="button" data-act="confirm" id="bConfirm" data-i18n="btn_confirm">I'm still available</button>
+<button class="btn ghost" type="button" data-act="pause" id="bPause" data-i18n="btn_pause">Pause</button>
+<button class="btn ghost" type="button" data-act="resume" id="bResume" data-i18n="btn_resume">I'm available again</button>
+</div>
+<button class="btn ghost" type="button" data-act="delete" style="color:#8c0f15" data-i18n="btn_delete">Delete my details</button>
+</div>
+</main>
+<footer><a href="/privacy" data-i18n="privacy">Privacy</a> · <span data-i18n="ambulance">Ambulance: 108</span></footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "crons": [{ "path": "/api/keepalive", "schedule": "30 3 * * *" }],
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "no-referrer" },
+      { "key": "X-Frame-Options", "value": "DENY" },
+      { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'" }
+    ]},
+    { "source": "/(app.css|app.js|i18n.js|icon.svg)", "headers": [
+      { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+    ]}
+  ]
+}
