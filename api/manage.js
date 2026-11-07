@@ -2,7 +2,7 @@ import { handler, rpc, body, str, ApiError } from './_lib.js';
 
 const ACTIONS = ['get', 'pause', 'resume', 'donated', 'confirm', 'delete'];
 
-// POST /api/manage { token, action, date? }  — donor's private link
+// POST /api/manage { token, action, date? }  (donor's private link)
 export default handler(['POST'], async (req) => {
   const b = body(req);
   const action = str(b.action, 10);

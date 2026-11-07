@@ -1,4 +1,4 @@
-# Rakt Setu — Rural India Blood Registry (V1)
+# Rakt Setu: Rural India Blood Registry (V1)
 
 A free, very light web app that connects village blood donors with families in an emergency.
 There's nothing to download. It works on phones over slow 3G and on laptops and desktops, in English, Hindi and Bengali, and costs ₹0 to run on the free plans of Vercel and Supabase.
@@ -79,13 +79,13 @@ public/            the website (plain HTML/CSS/JS, no framework, no build step)
   register.html    donor sign-up with health checks + consent
   me.html          donor's private page (link: /me#<token>)
   privacy.html     plain-language privacy notice
-  i18n.js          ALL text in English / Hindi / Bengali — edit translations here
+  i18n.js          ALL text in English / Hindi / Bengali (edit translations here)
   app.js, app.css, sw.js (offline cache), manifest, icon
 api/               serverless functions (thin; logic is in the database)
 netlify/           Netlify wrappers that run the same api/ code
   search, pincode, register, contact, manage, keepalive
   _messages.js     the pre-filled WhatsApp message in 3 languages
-db/schema.sql      tables, rules and functions — run in Supabase
+db/schema.sql      tables, rules and functions (run in Supabase)
 scripts/           pincode CSV builder
 test/              local dev server + SQL tests
 ```

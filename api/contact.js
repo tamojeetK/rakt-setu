@@ -2,7 +2,7 @@ import { handler, rpc, body, ipHash, str, GROUPS, ApiError } from './_lib.js';
 import { waMessage } from './_messages.js';
 
 // POST /api/contact  { donor_id, hospital, units?, from?, group }
-// The only endpoint that ever returns a phone number — rate-limited & logged in the DB.
+// The only endpoint that ever returns a phone number; rate-limited & logged in the DB.
 export default handler(['POST'], async (req) => {
   const b = body(req);
   if (b.website) throw new ApiError('BAD_INPUT', 400);

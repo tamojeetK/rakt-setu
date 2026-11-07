@@ -1,6 +1,6 @@
 // Tiny offline helper: pages and assets load from cache when the network is weak.
 // Bump VERSION whenever you change app.css / app.js / i18n.js.
-var VERSION = 'v2';
+var VERSION = 'v3';
 var SHELL = ['/', '/find', '/register', '/me', '/privacy', '/app.css', '/app.js', '/i18n.js', '/icon.svg'];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));

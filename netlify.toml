@@ -1,4 +1,4 @@
-# Netlify setup (Vercel uses vercel.json instead — both work from this repo)
+# Netlify setup (Vercel uses vercel.json instead; both work from this repo)
 [build]
   publish = "public"
   functions = "netlify/functions"

@@ -7,7 +7,7 @@
 //   node scripts/build-pincodes.mjs pincode_directory.csv                 # all India
 //   node scripts/build-pincodes.mjs pincode_directory.csv "WEST BENGAL"   # pilot state only
 //
-// Output: pincodes.csv  (pincode,district,state,lat,lon) — one row per pincode.
+// Output: pincodes.csv  (pincode,district,state,lat,lon), one row per pincode.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const [, , input, ...states] = process.argv;

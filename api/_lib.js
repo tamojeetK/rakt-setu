@@ -37,7 +37,7 @@ export async function rpc(fn, args) {
   return data;
 }
 
-// We never store raw IP addresses — only a salted hash, for rate limiting.
+// We never store raw IP addresses, only a salted hash, for rate limiting.
 export function ipHash(req) {
   const fwd = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
   const ip = fwd || req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown';

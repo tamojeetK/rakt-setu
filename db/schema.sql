@@ -1,5 +1,5 @@
 -- =====================================================================
--- Rural India Blood Registry — V1 database
+-- Rural India Blood Registry: V1 database
 -- Run this once in Supabase: Dashboard → SQL Editor → paste → Run.
 -- Safe to re-run: functions are replaced; tables are created if missing.
 --
